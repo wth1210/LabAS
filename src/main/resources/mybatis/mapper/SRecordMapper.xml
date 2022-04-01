@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.wth.labas.mapper.SRecordMapper">
+
+    <select id="getSRecordById">
+        select * from `srecord` where `sid` = #{sid};
+    </select>
+
+    <select id="getSRecordByUid">
+        select * from `srecord` where `uid` = #{uid};
+    </select>
+
+    <insert id="insertSRecord">
+        insert into `srecord`(`sid`,`uid`,`address`,`status`)
+        values (#{sid},#{uid},#{address},#{status});
+    </insert>
+
+    <update id="updateSRecord">
+        update `srecord` set `status` = #{status}
+        where `uid` = #{uid} and `sid` = #{sid}
+    </update>
+
+</mapper>

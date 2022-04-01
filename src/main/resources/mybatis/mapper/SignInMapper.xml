@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.wth.labas.mapper.SignInMapper">
+
+    <select id="getSignInById">
+        select * from `signin` where `qid` = #{qid};
+    </select>
+
+    <select id="getSignInByUid">
+        select * from `signin` where `uid` = #{uid};
+    </select>
+
+    <insert id="insertSignIn">
+        insert into `signin`(`qid`,`type`,`address`,`key`,`uid`,`duration`,`status`,`start`)
+        values (#{qid},#{type},#{address},#{key},{uid},{duration},{status},{start});
+    </insert>
+
+    <update id="updateSignIn">
+        update `signin` set `type`  = #{type},`address` = #{address},`key` = #{key},`duration` = #{duration},`status` = #{status}
+        where `qid` = #{qid}
+    </update>
+
+</mapper>
